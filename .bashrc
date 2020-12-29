@@ -35,3 +35,10 @@ do
   sleep $2
 done
 }
+
+scale-apps() {
+kubectl scale -n $1 --replicas=$2 deployment/sonarr-deployment
+kubectl scale -n $1 --replicas=$2 deployment/couchpotato-deployment
+kubectl scale -n $1 --replicas=$2 deployment/sabnzbd-deployment
+kubectl scale -n $1 --replicas=$2 deployment/gozznet-old 
+}
