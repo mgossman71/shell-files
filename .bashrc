@@ -1,4 +1,5 @@
-export KUBECONFIG=~/.kube/pi01
+#export KUBECONFIG=~/.kube/pi01
+unset KUBECONFIG
 
 HISTSIZE=200000
 HISTFILESIZE=$HISTSIZE
@@ -21,3 +22,16 @@ history() {                  #5
 export PS1="\h:\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
 
 alias cluster-select='cd ~/.kube; . cluster-sel.sh; cd - 1>/dev/null'
+
+alias pod-stats='kubectl get pods --all-namespaces -o wide'
+
+# watch
+watch() {
+while true
+do
+  clear
+  date
+  $1
+  sleep $2
+done
+}
