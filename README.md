@@ -36,4 +36,8 @@ history() {                  #5
   _bash_history_sync
   builtin history "$@"
 }
+md() {
+  mdv "$1" |less -r
+}
+PROMPT_COMMAND=_bash_history_sync
 ```
