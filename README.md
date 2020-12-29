@@ -7,3 +7,9 @@ alias goopenstack='cd ~/Downloads/OST-Scripts; . ost-select; cd - 1>/dev/null'
 # k8s-select
 alias gok8s='/usr/local/bin/k8s-select'
 ```
+```bash
+# k8s prompt
+source /usr/local/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh
+# PS1='[\u@\h \W $(kube_ps1)]\$ '
+PS1='$(pwd):$(kube_ps1)\$ '
+```
