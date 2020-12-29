@@ -53,3 +53,7 @@ function getpodstatus() {
     fi
 }
 ```
+### .bash_profile
+```bash
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+```
