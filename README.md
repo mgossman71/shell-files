@@ -13,3 +13,27 @@ source /usr/local/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh
 # PS1='[\u@\h \W $(kube_ps1)]\$ '
 PS1='$(pwd):$(kube_ps1)\$ '
 ```
+
+```bash
+# Git - prompt shows active branch.
+export PS1="\h:\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
+```
+
+```bash
+HISTSIZE=200000
+HISTFILESIZE=$HISTSIZE
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+_bash_history_sync() {
+  builtin history -a         #1
+  HISTFILESIZE=$HISTSIZE     #2
+  builtin history -c         #3
+  builtin history -r         #4
+}
+
+history() {                  #5
+  _bash_history_sync
+  builtin history "$@"
+}
+```
