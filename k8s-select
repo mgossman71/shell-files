@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+echo '--------------------------------------------------------------------------------'
+echo "List of All Contexts"
+echo '--------------------------------------------------------------------------------'
+kubectl config get-contexts
+echo
+
+cc=$(kubectl config current-context)
+echo
+echo Current Context: $cc
+
+read -p "Enter a context [default: $cc]: " usercontext
+context=${usercontext:-$cc}
+kubectl config use-context $context
+echo
+echo '--------------------------------------------------------------------------------'
