@@ -41,3 +41,15 @@ md() {
 }
 PROMPT_COMMAND=_bash_history_sync
 ```
+
+```bash
+function getpodstatus() {
+    if (($# != 0))
+    then
+        watch sh /usr/local/bin/k8s-monitor $1
+    else
+        context=$(kubectl config current-context)
+        watch sh /usr/local/bin/k8s-monitor ${context}
+    fi
+}
+```
