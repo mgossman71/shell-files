@@ -1,6 +1,6 @@
 # shell-files
 
-.bashrc
+### .bashrc
 ```bash
 # ost-select
 alias goopenstack='cd ~/Downloads/OST-Scripts; . ost-select; cd - 1>/dev/null'
