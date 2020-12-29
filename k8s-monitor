@@ -2,9 +2,9 @@
 
 if (($# != 0))
 then
-    # cluster="tgt-tte-bigoli-prod"
+    # cluster="clusterA"
     cluster=$1
-    # cluster="tgt-ttc-prod"
+    # clusterB"
     echo "cluster: $cluster"
     kubectl get po --no-headers --all-namespaces --context=$cluster | awk -F' ' '{print $4}' | sort | uniq -c
 else
