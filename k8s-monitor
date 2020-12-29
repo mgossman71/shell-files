@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if (($# != 0))
+then
+    # cluster="tgt-tte-bigoli-prod"
+    cluster=$1
+    # cluster="tgt-ttc-prod"
+    echo "cluster: $cluster"
+    kubectl get po --no-headers --all-namespaces --context=$cluster | awk -F' ' '{print $4}' | sort | uniq -c
+else
+    echo "Did not provide cluster"
+fi
